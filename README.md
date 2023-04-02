@@ -1,16 +1,16 @@
-# Spring Cource. Practical Project 3
+# Spring Course. Practical Project 3
 Repository for code which I wrote during Spring Course study (https://www.udemy.com/course/spring-alishev/).
-REST application which recieves measurement information from abstaract sensors (tmperature, rainy flag, sensor name) and store to the database.
-Also it provides possibility to get list of all mesurements in JSON format, register new sensor, get count of rainy days from database.
-The application implements OneToMany relations between Sensor and Measurements in the database and incomming data validation.Project containes three modules:
+REST application which receives measurement information from abstract sensors (temperature rainy flag, sensor name) and stores to the database.
+Also, it provides the possibility to get a list of all measurements in JSON format, register new sensors, get the count of rainy days from the database.
+The application implements OneToMany relations between Sensor and Measurements in the database and incoming data validation. Project contains three modules:
 - ```spring-sensor-common``` - common module with constants and DTO classes
-- ```spring-sensor-consumer``` - REST application that received information from abstract sensor, store it to DB and provides all needfull information in JSON format
-- ```spring-sensor-producer``` - simple module that can send request to create new sensor and 1000 requests with random measurements
+- ```spring-sensor-consumer``` - REST application that received information from the abstract sensor, stores it to DB, and provides all needful information in JSON format
+- ```spring-sensor-producer``` - a simple module that can send the request to create a new sensor and 1000 requests with random measurements
 
-Application provides next endpoints:
-- ```/sensors/registration``` - endpoit for sensor registration (allow POST request)
-- ```/measurements/add``` - endpoit for measurement add (allow POST requsts)
-- ```/measurements``` - returns list of all measurements from database in JSON format (allow GET request)
+The application provides next endpoints:
+- ```/sensors/registration``` - endpoint for sensor registration (allow POST request)
+- ```/measurements/add``` - endpoint for measurement add (allow POST requests)
+- ```/measurements``` - returns a list of all measurements from the database in JSON format (allow GET request)
 - ```/measurements/rainyDaysCount``` - returns count of rainy days from database
 
 Example of requests to ```/sensors/registration``` endpoint:
@@ -64,5 +64,5 @@ Example of response for GET requests to ```/measurements/rainyDaysCount``` endpo
 ```
 The project was created with Spring Boot, ModelMapper, and Hibernate Validator. For database collaboration, it is using Hibernate+Spring JPA.
 ```spring-sensor-consumer``` using docker-compose to build application container based on tomcat-jre image and postgres image for database container. 
-```spring-sensor-producer``` using jackson-databind and spring-web, module should be run localy.
+```spring-sensor-producer``` using jackson-databind and spring-web, module should be run locally.
 
