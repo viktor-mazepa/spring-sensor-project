@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  spring-sensor-consumer:
+    depends_on:
+      - postgres
+    build:
+      context: ./spring-sensor-consumer
+      dockerfile: Dockerfile
+    container_name: spring-sensor-consumer
+    ports:
+      - 8080:8080
+
+  postgres:
+    image: postgres:11.6
+    ports:
+      - 5432:5432
+    restart: always
+    container_name: spring-sensor-db
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+      - PGDATA=/var/lib/postgresql/data
+
